@@ -5,7 +5,6 @@ class Solution(object):
 		sum = max_left = max_right = 0
 		left_sum = -sys.maxint
 		for i in range(low, mid + 1)[::-1]:
-			print i
 			sum += A[i]
 			if sum > left_sum:
 				left_sum = sum
@@ -18,7 +17,13 @@ class Solution(object):
 				right_sum = sum
 				max_right = j
 		return max_left, max_right, left_sum + right_sum
+	def find_max(self, A, low, high):
+		if low == high:
+			return low, high, A[low]
+		else:
+			mid = (low + high) / 2
+			leftr_low, left_right, left_sum = 
 
 s1 = Solution()
-A = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4]
+A = [13, -3, -25, 20, -3, -16, -23, -18, -20, -7, -12, -5, -22, -15, -4]
 print s1.find(A, 0, len(A) - 1)
